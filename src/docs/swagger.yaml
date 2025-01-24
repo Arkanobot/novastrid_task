@@ -1,0 +1,83 @@
+swagger: '2.0'
+info:
+  title: Backend System
+  description: API Routes
+  version: 0.0.1
+securityDefinitions:
+  bearerAuth:
+    type: apiKey
+    name: Authorization
+    in: header
+    description: "Authorization header with Bearer token of the form Bearerxxxx..."
+basePath: /
+tags:
+  - name: Test Route
+    description: APIs to check server status
+  - name: General Users Route
+    description: APIs available to general users
+  - name: Registered Users Route
+    description: APIs available to registered users only
+  - name: Moderators and Admins Route
+    description: APIs available only to Moderators and Admins
+  - name: Admin Route
+    description: APIs available only to Admins
+paths:
+  /:
+    get:
+      tags:
+        - Test Route
+      description: Used to check if the server is running
+      responses:
+        '200':
+          description: Server is live
+  /login:
+    post:
+      tags:
+        - General Users Route
+      description: Used to login a user
+      parameters:
+        - in: body
+          name: login
+          required: true
+          schema:
+            type: object
+            required:
+              - username
+              - password
+            properties:
+              username:
+                type: string
+              password:
+                type: string
+      responses:
+        '200':
+          description: Login successful
+  /register:
+    post:
+      tags:
+        - General Users Route
+      description: Used to register a user
+      parameters:
+        - in: body
+          name: register
+          required: true
+          schema:
+             type: object
+             required:
+               - username
+               - name
+               - email
+               - password
+             properties:
+               username:
+                 type: string
+               name:
+                 type: string
+               email:
+                 type: string
+               password:
+                 type: string
+      responses:
+        '200':
+          description: Registration successful
+    

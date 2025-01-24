@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "lib": ["es5", "es6"],
+    "target": "esnext",
+    "module": "NodeNext",
+    "moduleResolution": "nodenext",
+    "outDir": "./build",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "sourceMap": true
+  }
+}
